@@ -23,6 +23,6 @@ app.get("/about-us", (req,res) => {
 
 //404
 app.use((req, res) => {
+    res.status(404)
     res.sendFile("views/404.html", {root: __dirname})
-    
 })
