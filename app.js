@@ -1,8 +1,14 @@
 const express = require("express")
+const morgan = require("morgan")
 
 const app = express()
 
 app.listen(3000)
+
+app.use(express.static("public"))
+app.use(morgan("dev"))
+
+// middleware and static files
 
 app.get("/", (req, res) => {
     res.contentType("text/html")
@@ -23,6 +29,6 @@ app.get("/about-us", (req,res) => {
 
 //404
 app.use((req, res) => {
+    res.status(404)
     res.sendFile("views/404.html", {root: __dirname})
-    
 })
