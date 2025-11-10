@@ -5,7 +5,10 @@ const app = express()
 
 app.listen(3000)
 
+app.use(express.static("public"))
 app.use(morgan("dev"))
+
+// middleware and static files
 
 app.get("/", (req, res) => {
     res.contentType("text/html")
